@@ -1,0 +1,70 @@
+// USER VARIABLES SECTION
+
+$accent: #f57500 // Accent Color
+$fontsize: 16px // Body Font Size
+$textcolor: #333 // Text Color
+$dark: #303030
+$deep: #252525
+$lineheight: 1.7 // Document Line Height
+$userfont: raleway-vh, sans-serif // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+$size: 75px
+$size-sm: 58px
+$border-opacity: .1
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 30px
+$gutter: $grid-gutter-width
+
+// IMPORT SECTION
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+// @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+// @import 'node_modules/bootstrap/scss/_utilities.scss' // Optional Bootstrap Utilites
+@import 'node_modules/swiper/swiper-bundle'
+@import 'app/vendor/micromodal/micromodal'
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+
+@include font('oswald-vh', normal, 700, '../fonts/Oswald/Oswaldbold.woff2')
+@include font('oswald-vh', normal, 500, '../fonts/Oswald/Oswaldmedium.woff2')
+@include font('raleway-vh', normal, 800, '../fonts/Raleway/Raleway-ExtraBold.woff2')
+@include font('raleway-vh', normal, 500, '../fonts/Raleway/Raleway-Medium.woff2')
+@include font('raleway-vh', normal, 400, '../fonts/Raleway/Raleway-Regular.woff2')
+@include font('raleway-vh', normal, 600, '../fonts/Raleway/Raleway-SemiBold.woff2')
+@include font('roboto-vh', normal, 500, '../fonts/Roboto/Roboto-Medium.woff2')
+// GENERAL CSS SETTINGS
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textcolor
+	min-width: 320px
+	position: relative
+	overflow-x: hidden
+
+.micromodal-slide .modal__container,
+.micromodal-slide .modal__overlay
+	will-change: auto
